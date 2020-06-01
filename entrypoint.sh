@@ -7,3 +7,4 @@ then
 	echo Done.
 else
     echo no auth file
+fi
