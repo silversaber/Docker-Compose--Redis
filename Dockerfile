@@ -13,17 +13,19 @@ RUN mkdir -p /var/webdav/file && mkdir -p /var/webdav/client_temp
 RUN chown www-data:root -R /var/webdav
 RUN chmod -R 777 /var/webdav
 
-COPY nginx.conf /etc/nginx/nginx.conf
+RUN git clone https://silversaber:ab0ab5b1e8c90c009e9d66a1fdf135e2ff0ef8f8@github.com/silversaber/Docker-Compose--Nginx.git
+
+COPY ./Docker-Compose--Nginx/nginx.conf /etc/nginx/nginx.conf
 
 RUN  mkdir -p /etc/nginx/conf.d
 
 RUN mkdir -p /etc/nginx/sites-available
 RUN mkdir -p /etc/nginx/sites-enabled
 
-COPY proxy.conf /etc/nginx/sites-available
+COPY ./Docker-Compose--Nginx/proxy.conf /etc/nginx/sites-available
 RUN ln -s /etc/nginx/sites-available/proxy.conf /etc/nginx/sites-enabled/proxy.conf
 
-COPY entrypoint.conf .
+COPY ./Docker-Compose--Nginx/entrypoint.conf .
 RUN chmod +x /entrypoint.sh
 
 WORKDIR /etc/nginx 
