@@ -13,10 +13,7 @@ RUN mkdir -p /var/webdav/file && mkdir -p /var/webdav/client_temp
 RUN chown www-data:root -R /var/webdav
 RUN chmod -R 777 /var/webdav
 
-RUN cd /tmp
-RUN ls -l
-
-COPY ./Docker-Compose--Nginx/nginx.conf /etc/nginx/nginx.conf
+COPY ./blob/master/nginx.conf /etc/nginx/nginx.conf
 
 RUN  mkdir -p /etc/nginx/conf.d
 #COPY webdav.conf /etc/nginx/conf.d/
@@ -25,12 +22,12 @@ RUN  mkdir -p /etc/nginx/conf.d
 RUN mkdir -p /etc/nginx/sites-available
 RUN mkdir -p /etc/nginx/sites-enabled
 
-COPY ./Docker-Compose--Nginx/proxy.conf /etc/nginx/sites-available
+COPY ./blob/master/proxy.conf /etc/nginx/sites-available
 RUN ln -s /etc/nginx/sites-available/proxy.conf /etc/nginx/sites-enabled/proxy.conf
 
-COPY ./Docker-Compose--Nginx/entrypoint.sh .
+COPY ./blob/master/entrypoint.sh .
 RUN chmod +x /entrypoint.sh
 
 WORKDIR /etc/nginx 
 #CMD nginx -g "daemon off;"
-CMD ./Docker-Compose--Nginx/entrypoint.sh && nginx -g "daemon off;"
+CMD ./blob/master/entrypoint.sh && nginx -g "daemon off;"
