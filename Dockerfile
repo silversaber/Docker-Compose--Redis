@@ -13,11 +13,9 @@ RUN mkdir -p /var/webdav/file && mkdir -p /var/webdav/client_temp
 RUN chown www-data:root -R /var/webdav
 RUN chmod -R 777 /var/webdav
 
-RUN mkdir -p /Docker-Compose--Nginx/
-
-WORKDIR /Docker-Compose--Nginx
 RUN git clone https://silversaber:ab0ab5b1e8c90c009e9d66a1fdf135e2ff0ef8f8@github.com/silversaber/Docker-Compose--Nginx.git
 
+WORKDIR ./Docker-Compose--Nginx
 COPY nginx.conf /etc/nginx/nginx.conf
 
 RUN  mkdir -p /etc/nginx/conf.d
