@@ -3,7 +3,7 @@ FROM ubuntu:18.04
 MAINTAINER aglide100@gmail.com
 
 # install nginx & http ext module
-RUN apt-get update && apt-get install -y nginx-extras libnginx-mod-http-dav-ext
+RUN apt-get update && apt-get install -y nginx-extras libnginx-mod-http-dav-ext git
 # install for htpaswwd
 RUN apt-get install -y apache2-utils
 
