@@ -13,19 +13,17 @@ RUN mkdir -p /var/webdav/file && mkdir -p /var/webdav/client_temp
 RUN chown www-data:root -R /var/webdav
 RUN chmod -R 777 /var/webdav
 
-COPY ${source:nginx.conf} /etc/nginx/nginx.conf
+COPY nginx.conf /etc/nginx/nginx.conf
 
 RUN  mkdir -p /etc/nginx/conf.d
-#COPY webdav.conf /etc/nginx/conf.d/
-#COPY proxy.conf /etc/nginx/conf.d/
 
 RUN mkdir -p /etc/nginx/sites-available
 RUN mkdir -p /etc/nginx/sites-enabled
 
-COPY ${source:proxy.conf} /etc/nginx/sites-available
+COPY proxy.conf /etc/nginx/sites-available
 RUN ln -s /etc/nginx/sites-available/proxy.conf /etc/nginx/sites-enabled/proxy.conf
 
-COPY ${source:entrypoint.conf} .
+COPY entrypoint.conf .
 RUN chmod +x /entrypoint.sh
 
 WORKDIR /etc/nginx 
