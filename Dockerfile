@@ -13,7 +13,7 @@ RUN mkdir -p /var/webdav/file && mkdir -p /var/webdav/client_temp
 RUN chown www-data:root -R /var/webdav
 RUN chmod -R 777 /var/webdav
 
-RUN ll
+RUN ls -l
 
 COPY ./Docker-Compose--Nginx/nginx.conf /etc/nginx/nginx.conf
 
