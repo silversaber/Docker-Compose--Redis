@@ -16,7 +16,6 @@ RUN chmod -R 777 /var/webdav
 COPY nginx.conf /etc/nginx/nginx.conf
 
 # 80/443포트로 접속시 나오는 index.html. 다른 서비스를 넣을꺼면 삭제 요망
-#RUN rm -rf /usr/share/nginx/www/index.html
 COPY index.html /usr/share/nginx/html
 COPY 404.html /usr/share/nginx/html
 
