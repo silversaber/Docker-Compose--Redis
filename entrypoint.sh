@@ -9,6 +9,7 @@ then
 	else 
 		htpasswd -bc /etc/nginx/user2.htpasswd  $USERNAME $USERPWD
 		echo Done.
+	fi
 else
     echo no auth file
 fi
