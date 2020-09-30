@@ -4,7 +4,8 @@ if [[ -n "$USERNAME" ]] && [[ -n "$USERPWD" ]]
 then
 	if [[ -n "$USERNAME2" ]] && [[ -n "$USERPWD2" ]]
 	then
-		htpasswd -bc /etc/nginx/user.htpasswd  $USERNAME $USERPWD $USERNAME2 $USERPWD2
+		htpasswd -bc /etc/nginx/user.htpasswd  $USERNAME $USERPWD
+		htpasswd /etc/nginx/user.htpasswd $USERNAME2 $USERPWD2
 		echo Done.
 	else 
 		htpasswd -bc /etc/nginx/user.htpasswd  $USERNAME $USERPWD
