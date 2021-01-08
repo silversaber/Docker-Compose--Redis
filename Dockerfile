@@ -1,7 +1,7 @@
 #jenkins
 FROM jenkins/jenkins:lts
 
-USER root
+USER heewoong
 
 RUN apt-get update
 
