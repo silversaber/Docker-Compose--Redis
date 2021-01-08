@@ -6,3 +6,6 @@
 
 ### Docker-Build
 - https://github.com/silversaber/Docker-Compose--Builder
+
+### Jenkins
+- https://github.com/silversaber/Docker-Compose--Jenkins
