@@ -10,5 +10,5 @@
 ### Jenkins
 - https://github.com/silversaber/Docker-Compose--Jenkins
 
-### Jenkins
+### Redis
 - https://github.com/silversaber/Docker-Compose--Redis
