@@ -2,10 +2,9 @@ FROM redis:latest
 RUN mkdir /var/log/redis
 
 RUN mkdir /usr/local/etc/redis
-RUN mkdir /redis
 
 COPY redis.conf /usr/local/etc/redis/redis.conf
-COPY init.sh /redis
+COPY init.sh /
 
-WORKDIR /redis
-CMD init.sh
+RUN chmod +x init.sh
+CMD /init.sh
