@@ -4,6 +4,7 @@ RUN mkdir /var/log/redis
 RUN mkdir /usr/local/etc/redis
 
 COPY redis.conf /usr/local/etc/redis/redis.conf
-COPY init.sh ~/
+COPY init.sh /redis
 
-CMD [ "~/init.sh"]
+WORKDIR /redis
+CMD init.sh
