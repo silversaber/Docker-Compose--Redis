@@ -1,4 +1,4 @@
-FROM redis:3.0
+FROM redis:latest
 RUN mkdir /var/log/redis
 
 RUN mkdir /usr/local/etc/redis
