@@ -1,13 +1,7 @@
-#jenkins
-FROM jenkins/jenkins:lts
+FROM redis:3.0
+RUN mkdir /var/log/redis
 
-USER root
+RUN mkdir /usr/local/etc/redis
 
-RUN apt-get update
-
-# docker install
-RUN curl -fsSL https://get.docker.com/ | sh
-
-# docker-compose install
-RUN curl -L "https://github.com/docker/compose/releases/download/1.25.4/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose && \
-    chmod +x /usr/local/bin/docker-compose
+COPY redis.conf /usr/local/etc/redis/redis.conf
+CMD [ "redis-server", "/usr/local/etc/redis/redis.conf" ]
